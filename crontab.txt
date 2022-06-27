@@ -1,0 +1,22 @@
+SHELL=/bin/bash
+#Input Data Every 3:30, 7:30, 11:30, 15:30, 19:30, 23:30
+30 3 * * * /home/proj01/docker-influxdb-grafana/Input/bin/Input_Command.sh
+30 7 * * * /home/proj01/docker-influxdb-grafana/Input/bin/Input_Command.sh
+30 11 * * * /home/proj01/docker-influxdb-grafana/Input/bin/Input_Command.sh
+30 15 * * * /home/proj01/docker-influxdb-grafana/Input/bin/Input_Command.sh
+30 19 * * * /home/proj01/docker-influxdb-grafana/Input/bin/Input_Command.sh
+30 23 * * * /home/proj01/docker-influxdb-grafana/Input/bin/Input_Command.sh
+
+#Fitting Model Every 1st, 16th day of month
+0 0,2,4,6 1,16 * * /home/proj01/docker-influxdb-grafana/Input/bin/Fit_Command.sh
+0 0,2,4,6 2,17 * * /home/proj01/docker-influxdb-grafana/Input/bin/Fit_Command.sh
+0 0,2,4,6 3,18 * * /home/proj01/docker-influxdb-grafana/Input/bin/Fit_Command.sh
+0 0,2,4,6 4,19 * * /home/proj01/docker-influxdb-grafana/Input/bin/Fit_Command.sh
+0 0,2,4,6 5,20 * * /home/proj01/docker-influxdb-grafana/Input/bin/Fit_Command.sh
+0 0,2,4,6 6,21 * * /home/proj01/docker-influxdb-grafana/Input/bin/Fit_Command.sh
+0 0,2,4,6 7,22 * * /home/proj01/docker-influxdb-grafana/Input/bin/Fit_Command.sh
+0 0,2,4,6,8 8,23 * * /home/proj01/docker-influxdb-grafana/Input/bin/Fit_Command.sh
+0 0,2,4,6,8 9,24 * * /home/proj01/docker-influxdb-grafana/Input/bin/Fit_Command.sh
+
+#Predict Every 3days
+0 0 */3 * * python3 /home/proj01/docker-influxdb-grafana/Input/Usage_Model.py P
